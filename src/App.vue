@@ -1,39 +1,30 @@
 <template>
   <div id="app" class="display">
-    <img alt="Pallet town" src="./assets/pallettown.png">
+    <Scene/>
     <Sacha/>
-    <div class="message">
-      <p>{{greetings}}</p>
-
-      <input type="text" v-model="firstName" v-on:keydown.enter="displayGreetings=false"/>
-      <p v-if="firstName">Ah ! Je me souviens de toi ! Bonjour {{firstName}} !</p>
-    </div>
+    <Greetings />
   </div>
 </template>
 
 <script>
-import Sacha from '/components/Sacha.vue';
+import Sacha from './components/Sacha.vue';
+import Scene from './components/Scene.vue';
+import Greetings from './components/Greetings.vue';
 
 export default {
-  data(){
-    return { 
-      greetings:"Hé ! Bonjour quel est ton nom?",
-      firstName:"", 
-      displayGreetings:true};
-  },
+ 
   name: 'app',
   components: {
+    Scene,
     Sacha,
+    Greetings
+    
   }
 }
 </script>
 
 <style>
-img {
-  width:800px;
-  margin-left:2px;
-  image-rendering:pixelated;
-}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
